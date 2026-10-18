@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://brqoe880mkla8"]
+
+[ext_resource type="PackedScene" uid="uid://m0irsof1ul4j" path="res://Assets/Models/jamblock2blend.blend" id="1_7yn8b"]
+[ext_resource type="PackedScene" uid="uid://cffwp0ay4vkd7" path="res://Scenes/Player.tscn" id="2_etk83"]
+[ext_resource type="PackedScene" uid="uid://24timn8f62be" path="res://Scenes/Base_Hostile_NPC.tscn" id="3_etk83"]
+
+[node name="Node3D" type="Node3D" unique_id=1756097136]
+
+[node name="jamblock2blend" parent="." unique_id=321676798 instance=ExtResource("1_7yn8b")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -18)
+
+[node name="Player" parent="." unique_id=994208285 instance=ExtResource("2_etk83")]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.7, -12.5)
+
+[node name="Node3D" parent="." unique_id=269955436 instance=ExtResource("3_etk83")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.555, 2.1, -13.580321)

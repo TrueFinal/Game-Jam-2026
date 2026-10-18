@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://24timn8f62be"]
+
+[ext_resource type="Script" uid="uid://dnqrqug158ptd" path="res://Scripts/Player/enemy.gd" id="1_smibe"]
+[ext_resource type="Texture2D" uid="uid://cwsatcmnikj6m" path="res://Assets/Textures/INIMIGO1.png" id="2_vksd3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lju12"]
+albedo_texture = ExtResource("2_vksd3")
+
+[sub_resource type="SphereMesh" id="SphereMesh_gntrk"]
+
+[sub_resource type="Skin" id="Skin_vksd3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kyqiw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m5a1v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0hx70"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qf8oh"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qf8oh"]
+viewport_path = NodePath("Sprite3D/SubViewportContainer")
+
+[node name="Node3D" type="CharacterBody3D" unique_id=269955436]
+script = ExtResource("1_smibe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1989941580]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_lju12")
+mesh = SubResource("SphereMesh_gntrk")
+skin = SubResource("Skin_vksd3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=790801705]
+shape = SubResource("BoxShape3D_kyqiw")
+
+[node name="Hurtbox" type="Area3D" parent="." unique_id=1605759360 groups=["inimigo_hurtbox"]]
+
+[node name="hitbox_dano" type="CollisionShape3D" parent="Hurtbox" unique_id=619239186]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 0, 0, 0)
+shape = SubResource("SphereShape3D_m5a1v")
+disabled = true
+
+[node name="Hitbox" type="Area3D" parent="." unique_id=749993781]
+
+[node name="Area de dano recebido" type="CollisionShape3D" parent="Hitbox" unique_id=1516784426]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 0, 0, 0)
+shape = SubResource("SphereShape3D_0hx70")
+disabled = true
+
+[node name="AreaDetecao" type="Area3D" parent="." unique_id=84481033]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaDetecao" unique_id=1574851970]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("SphereShape3D_qf8oh")
+disabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=543758594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 2
+texture = SubResource("ViewportTexture_qf8oh")
+
+[node name="SubViewportContainer" type="SubViewport" parent="Sprite3D" unique_id=1201223892]
+transparent_bg = true
+size = Vector2i(100, 15)
+
+[node name="ProgressBar" type="ProgressBar" parent="Sprite3D/SubViewportContainer" unique_id=1951881685]
+offset_right = 100.0
+offset_bottom = 15.0
+fill_mode = 1
+show_percentage = false
